@@ -1,6 +1,5 @@
 // Suffix Cyclic Doubling method 
 // Time Complexity : O(n log^2(n)); 
-// O(n log(n)) + O(log(n) + n log(n))
 // Naive Solution
 //Basic Approach Towards ALgo
 
@@ -52,12 +51,8 @@ int main() {
 
         vector < pair < pair < int, int > , int >> a(n);
         for (int i = 0; i < n; i++) {
-            a[i] = {
-                {
-                    c[i], c[i + (1 << k) % n]
-                },
-                i
-            };
+            a[i] = { { c[i], c[(i + (1 << k)) % n] }, i };
+
         }
 
         sort(a.begin(), a.end());
@@ -77,8 +72,13 @@ int main() {
         }
         k++;
     }
-  
+    
+    
     for(int i = 0;i<n;i++){
         cout<<p[i]<<" "<<s.substr(p[i], n - p[i])<<endl;
     }
 }
+
+
+
+
