@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Radix sort for vector<pair<char, int>>
+
 void radixSort(vector<pair<char, int>>& a) {
     int n = a.size();
-    vector<int> count(256, 0); // ASCII range
+    vector<int> count(256, 0); 
 
     for (auto& x : a)
         count[x.first]++;
@@ -20,11 +20,9 @@ void radixSort(vector<pair<char, int>>& a) {
     a = sorted;
 }
 
-// Radix sort for vector<pair<pair<int, int>, int>>
 void radixSort(vector<pair<pair<int, int>, int>>& a) {
     int n = a.size();
 
-    // Sort by second element (less significant)
     {
         vector<int> count(n, 0);
         for (auto& x : a)
@@ -41,7 +39,7 @@ void radixSort(vector<pair<pair<int, int>, int>>& a) {
         a = sorted;
     }
 
-    // Sort by first element (more significant)
+
     {
         vector<int> count(n, 0);
         for (auto& x : a)
@@ -109,7 +107,7 @@ int main() {
         k++;
     }
 
-    // Output the suffix array
+ 
     for (int i = 0; i < n; i++)
         cout << p[i] << " " << s.substr(p[i], n - p[i]) << endl;
 
